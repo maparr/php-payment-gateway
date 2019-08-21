@@ -19,7 +19,7 @@
     }
   },
   "scripts": {
-    "test": "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests",
+    "test": "./vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox tests --colors",
     "format": [
       "vendor/bin/php-cs-fixer fix ./src"
     ]
