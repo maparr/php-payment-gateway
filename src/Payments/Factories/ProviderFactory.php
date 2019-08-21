@@ -5,8 +5,16 @@ namespace Setapp\Test\Payments\Factories;
 
 use Setapp\Test\Payments\DTO\InvoiceDTO;
 
+/**
+ * Class ProviderFactory
+ * @package Setapp\Test\Payments\Factories
+ */
 class ProviderFactory
 {
+    /**
+     * @param InvoiceDTO $dto
+     * @return InterfaceProvider
+     */
     public function make(InvoiceDTO $dto): InterfaceProvider
     {
         switch ($dto->getProvider()) {

@@ -5,9 +5,11 @@ namespace Setapp\Test\Payments\Factories;
 
 use Setapp\Test\Payments\DTO\InvoiceDTO;
 use Setapp\Test\Payments\Providers\DetailedProvider as Provider;
-use function assert;
-use function print_r;
 
+/**
+ * Class DetailedProvider
+ * @package Setapp\Test\Payments\Factories
+ */
 class DetailedProvider implements InterfaceProvider
 {
     /**
@@ -19,12 +21,19 @@ class DetailedProvider implements InterfaceProvider
      */
     private $dto;
 
+    /**
+     * DetailedProvider constructor.
+     * @param InvoiceDTO $dto
+     */
     public function __construct(InvoiceDTO $dto)
     {
         $this->instance = new Provider();
         $this->dto = $dto;
     }
 
+    /**
+     * @return bool
+     */
     public function process(): bool
     {
         $this->instance->schedule($this->dto->getCustomerId(), [
@@ -36,6 +45,9 @@ class DetailedProvider implements InterfaceProvider
         return true;
     }
 
+    /**
+     * @return string
+     */
     public static function type()
     {
         return Provider::NAME;

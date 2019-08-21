@@ -9,17 +9,27 @@ use Setapp\Test\Payments\Providers\DetailedProvider;
 use Setapp\Test\Payments\Providers\LambdaProvider;
 use Setapp\Test\Payments\Providers\SimpleProvider;
 
+/**
+ * Class BasePaymentGatewayTest
+ * @package Setapp\Test\Tests\Payments
+ */
 class BasePaymentGatewayTest extends TestCase
 {
     /** @var BasePaymentGateway */
     protected $testingUnit;
 
+    /**
+     *
+     */
     public function setUp()
     {
         parent::setUp();
         $this->testingUnit = new BasePaymentGateway();
     }
 
+    /**
+     * @return array
+     */
     public function getChargeTestsSets(): array
     {
         $detailedSuccess1 = new DummyInvoice('d1-ok', 200, '20.00', DetailedProvider::NAME);

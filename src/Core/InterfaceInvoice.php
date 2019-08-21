@@ -3,6 +3,10 @@ declare(strict_types=1);
 
 namespace Setapp\Test\Core;
 
+/**
+ * Interface InterfaceInvoice
+ * @package Setapp\Test\Core
+ */
 interface InterfaceInvoice
 {
     /**

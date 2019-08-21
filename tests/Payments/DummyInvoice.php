@@ -5,6 +5,10 @@ namespace Setapp\Test\Tests\Payments;
 
 use Setapp\Test\Core\InterfaceInvoice;
 
+/**
+ * Class DummyInvoice
+ * @package Setapp\Test\Tests\Payments
+ */
 class DummyInvoice implements InterfaceInvoice
 {
     /** @var string */

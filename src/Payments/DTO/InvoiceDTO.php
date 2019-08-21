@@ -6,6 +6,10 @@ namespace Setapp\Test\Payments\DTO;
 
 use Setapp\Test\Core\InterfaceInvoice;
 
+/**
+ * Class InvoiceDTO
+ * @package Setapp\Test\Payments\DTO
+ */
 class InvoiceDTO implements InterfaceInvoice
 {
     /**
@@ -26,6 +30,13 @@ class InvoiceDTO implements InterfaceInvoice
     private $providerType;
 
 
+    /**
+     * InvoiceDTO constructor.
+     * @param int $customerId
+     * @param string $amount
+     * @param string $invoice_id
+     * @param string $providerType
+     */
     public function __construct(
         int $customerId,
         string $amount,

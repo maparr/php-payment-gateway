@@ -8,6 +8,10 @@ use Setapp\Test\Payments\Factories\ProviderFactory;
 use Setapp\Test\Payments\DTO\InvoiceDTO;
 use Setapp\Test\Tests\Payments\DummyInvoice;
 
+/**
+ * Class BasePaymentGateway
+ * @package Setapp\Test\Payments
+ */
 class BasePaymentGateway implements InterfacePaymentGateway
 {
     /**
@@ -15,6 +19,9 @@ class BasePaymentGateway implements InterfacePaymentGateway
      */
     private $factory;
 
+    /**
+     * BasePaymentGateway constructor.
+     */
     public function __construct()
     {
         $this->factory = new ProviderFactory;

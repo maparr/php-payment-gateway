@@ -5,6 +5,10 @@ namespace Setapp\Test\Payments;
 
 use Setapp\Test\Core\InterfaceInvoice;
 
+/**
+ * Interface InterfacePaymentGateway
+ * @package Setapp\Test\Payments
+ */
 interface InterfacePaymentGateway
 {
     /**
