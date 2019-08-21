@@ -18,4 +18,3 @@ class SimpleProvider
         return (float)$amount > 0 && (float)$amount < 100;
     }
 }
-

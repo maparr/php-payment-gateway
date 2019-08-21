@@ -34,11 +34,11 @@ class BasePaymentGatewayTest extends TestCase
         $lambdaFail2 = new DummyInvoice('l2-fail', 303, '80.00', LambdaProvider::NAME);
 
         return [
-            'detailed provider' => [['d1-ok' => true], $detailedSuccess1],
+            'detailed provider' => [['d1-ok' => true ], $detailedSuccess1],
             'simple provider' => [['s-ok' => true, 's-fail' => false], $simpleSuccess, $simpleFail],
             'lambda provider' => [['l1-ok' => true, 'l1-fail' => false], $lambdaSuccess1, $lambdaFail1],
             'mixed providers' => [
-                ['s-ok' => true, 'l1-ok' => true, 'd2-ok' => true, 'l2-ok' => true, 'l-f1' => true, 'l-f2' => true],
+                ['s-ok' => true, 'l1-ok' => true, 'd2-ok' => true, 'l2-ok' => true, 'l1-fail' => false, 'l2-fail' => false],
                 $simpleSuccess,
                 $lambdaSuccess1,
                 $detailedSuccess2,

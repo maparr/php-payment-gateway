@@ -25,4 +25,3 @@ interface InterfaceInvoice
      */
     public function getProvider(): string;
 }
-

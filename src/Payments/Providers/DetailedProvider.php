@@ -25,4 +25,3 @@ class DetailedProvider
         assert(isset($data['invoice_id']));
     }
 }
-

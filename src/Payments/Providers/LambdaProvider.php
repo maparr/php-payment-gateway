@@ -26,11 +26,10 @@ class LambdaProvider
         assert($data['invoices']);
 
         $result = [];
-        foreach ($data['invoices'] as $invoiceId => [$customerId, $amountUSD])
-        {
+        foreach ($data['invoices'] as $invoiceId => [$customerId, $amountUSD]) {
             $result[$invoiceId] = (bool)($customerId % 2 - 1);
         }
+
         return $result;
     }
 }
-
