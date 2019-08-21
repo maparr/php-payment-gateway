@@ -44,7 +44,9 @@ class BasePaymentGateway implements InterfacePaymentGateway
                 $invoice->getId(),
                 $invoice->getProvider()
             );
-            $outer[$dto->getId()] = $this->factory->make($dto)->process();
+            $outer[$dto->getId()] = $this->factory
+                ->make($invoice->getProvider())
+                ->process($dto);
         }
 
         return $outer;

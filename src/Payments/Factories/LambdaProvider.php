@@ -16,36 +16,31 @@ class LambdaProvider implements InterfaceProvider
      * @var Provider
      */
     private $instance;
-    /**
-     * @var InvoiceDTO
-     */
-    private $dto;
 
     /**
      * LambdaProvider constructor.
-     * @param InvoiceDTO $dto
      */
-    public function __construct(InvoiceDTO $dto)
+    public function __construct()
     {
         $this->instance = new Provider();
-        $this->dto = $dto;
     }
 
     /**
+     * @param InvoiceDTO $dto
      * @return bool
      */
-    public function process(): bool
+    public function process(InvoiceDTO $dto): bool
     {
         $result = $this->instance->charge([
             'invoices' => [
-                $this->dto->getId() => [
-                    $this->dto->getCustomerId(),
-                    $this->dto->getAmount()
+                $dto->getId() => [
+                    $dto->getCustomerId(),
+                    $dto->getAmount()
                 ],
             ]
         ]);
 
-        return $result[$this->dto->getId()];
+        return $result[$dto->getId()];
     }
 
     /**

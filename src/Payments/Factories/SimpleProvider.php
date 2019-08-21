@@ -16,27 +16,23 @@ class SimpleProvider implements InterfaceProvider
      * @var Provider
      */
     private $instance;
-    /**
-     * @var InvoiceDTO
-     */
-    private $dto;
+
 
     /**
      * SimpleProvider constructor.
-     * @param InvoiceDTO $dto
      */
-    public function __construct(InvoiceDTO $dto)
+    public function __construct()
     {
         $this->instance = new Provider();
-        $this->dto = $dto;
     }
 
     /**
+     * @param InvoiceDTO $dto
      * @return bool
      */
-    public function process(): bool
+    public function process(InvoiceDTO $dto): bool
     {
-        return $this->instance->charge($this->dto->getCustomerId(), $this->dto->getAmount());
+        return $this->instance->charge($dto->getCustomerId(), $dto->getAmount());
     }
 
     /**

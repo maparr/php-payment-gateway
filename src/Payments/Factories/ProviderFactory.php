@@ -3,27 +3,26 @@ declare(strict_types=1);
 
 namespace Setapp\Test\Payments\Factories;
 
-use Setapp\Test\Payments\DTO\InvoiceDTO;
-
 /**
  * Class ProviderFactory
  * @package Setapp\Test\Payments\Factories
  */
 class ProviderFactory
 {
+
     /**
-     * @param InvoiceDTO $dto
+     * @param string $type
      * @return InterfaceProvider
      */
-    public function make(InvoiceDTO $dto): InterfaceProvider
+    public function make(string $type): InterfaceProvider
     {
-        switch ($dto->getProvider()) {
+        switch ($type) {
             case DetailedProvider::type():
-                return (new DetailedProvider($dto));
+                return new DetailedProvider;
             case SimpleProvider::type():
-                return (new SimpleProvider($dto));
+                return new SimpleProvider;
             case LambdaProvider::type():
-                return (new LambdaProvider($dto));
+                return new LambdaProvider;
             default:
                 throw new \DomainException('Instance not found');
         }

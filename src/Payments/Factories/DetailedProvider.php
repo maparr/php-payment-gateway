@@ -16,30 +16,25 @@ class DetailedProvider implements InterfaceProvider
      * @var Provider
      */
     private $instance;
-    /**
-     * @var InvoiceDTO
-     */
-    private $dto;
 
     /**
      * DetailedProvider constructor.
-     * @param InvoiceDTO $dto
      */
-    public function __construct(InvoiceDTO $dto)
+    public function __construct()
     {
         $this->instance = new Provider();
-        $this->dto = $dto;
     }
 
     /**
+     * @param InvoiceDTO $dto
      * @return bool
      */
-    public function process(): bool
+    public function process(InvoiceDTO $dto): bool
     {
-        $this->instance->schedule($this->dto->getCustomerId(), [
-                'amount' => $this->dto->getAmount(),
+        $this->instance->schedule($dto->getCustomerId(), [
+                'amount' => $dto->getAmount(),
                 'request_time' => \date('Y-m-d\TH:i:sP'),
-                'invoice_id' => $this->dto->getId()
+                'invoice_id' => $dto->getId()
             ]);
 
         return true;
